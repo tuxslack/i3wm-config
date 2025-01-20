@@ -408,7 +408,7 @@ exec_always --no-startup-id play /usr/share/sounds/freedesktop/stereo/service-lo
 # Para definir um plano de fundo para o nosso i3wm com Feh
 
 
-exec --no-startup-id  sleep 1s && feh --no-fehbg --bg-scale '/home/fernando/Imagens/wallhaven-e7zmwk.jpg' &
+exec --no-startup-id  sleep 1s && feh --no-fehbg --bg-scale ~/Imagens/wallhaven-e7zmwk.jpg &
 
 
 # exec --no-startup-id feh --bg-fill ~/Imagens/wallhaven-e7zmwk.jpg &
