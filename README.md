@@ -12,15 +12,18 @@ Atalhos de teclado são teclas ou combinações de teclas que fornecem uma manei
 Aqui estão vários atalhos de teclado comuns:
 
 * Alternar entre os programas abertos (O programa deve esta em outra area de trabalho do i3wm): Alt + Tab
+* Alternar entre os programas abertos Tecla Windows + -> ou Tecla Windows + <-
 * Bloquear o computador, sendo necessário digitar a senha, caso tenha, para abrir novamente (O mod+l já é usado - Ctrl + tecla Windows + l): tecla do logotipo do Windows  + L  
 * Exibir e ocultar a área de trabalho (NÃO TEM NO I3WM): tecla do logotipo do Windows + D.
 * Fechar a janela ativa: Alt+F4
 * Abrir o Rofi (menu Iniciar): tecla do logotipo do Windows + D
+* Para abrir o Executar (dmenu): pressione as teclas ctrl + tecla do Windows + R ao mesmo tempo.
 * Abra o gerenciador de arquivo (Thunar) - O $mod+e já é usado (Ctrl+$mod+e): Tecla Windows + E
 * Abre o Gerenciador de tarefas (htop) - O xfce4-taskmanager não tem opção de fecha no i3WM: ctrl + shift + esc
 * Dá uma visão de todos os programa abertos na area de trabalho atual (Tecla Windows + E) : ctrl + alt + tab
 * Captura a tela inteira: Tecla Print Scr
 * Abre o Prompt de Comando (Tecla Windows + Enter): Tecla Windows + D
+  
 
   
 * Dá acesso ao Executar: Windows + R (NÃO CONFIGURADO)
