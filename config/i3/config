@@ -35,6 +35,10 @@ font pango:monospace 8
 
 # ----------------------------------------------------------------------------------------
 
+
+# Teclas de atalhos
+
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -62,15 +66,7 @@ bindsym Mod1+F4 kill
 
 # ----------------------------------------------------------------------------------------
 
-# Substituindo "dmenu_drun" para "rofi -show drun"
-
-# start dmenu (a program launcher)
-
-# bindsym $mod+d exec --no-startup-id dmenu_run
-
-
-# Substituindo "rofi" para "jgmenu"
-
+# Rofi (menu iniciar no i3wm)
 
 
 # Você pode me dizer como definir o jgmenu como menu padrão ao clicar com o botão direito?
@@ -82,9 +78,13 @@ bindsym Mod1+F4 kill
 
 
 
+# bindsym $mod+d exec rofi -modi drun -show drun
+
+
 bindsym $mod+d exec rofi -show drun
 
 # bindsym $mod+d exec rofi -show run
+
 
 # bindsym $mod+d exec jgmenu
 
@@ -94,17 +94,43 @@ bindsym $mod+d exec rofi -show drun
 
 # ----------------------------------------------------------------------------------------
 
+# start dmenu (a program launcher) - tecla Windows + R já esta sendo usada (Pressione Ctrl + tecla Windows  + R)
+
+bindsym control+$mod+r exec --no-startup-id dmenu_run
+
+# ----------------------------------------------------------------------------------------
+
+# Menu de desligamento (Pressione tecla Windows + x)
+
+# Para desligar, reiniciar, bloquear ou sair (comando mod+x).
+
+bindsym $mod+x exec ~/.config/rofi/bin/powermenu.sh
+
+# https://plus.diolinux.com.br/t/arch-linux-menu-de-programas/28227/7
+
+# ----------------------------------------------------------------------------------------
+
 # Tirar captura de tela com a tecla Print:
 
 bindsym Print exec xfce4-screenshooter
 
 # ----------------------------------------------------------------------------------------
 
-# Tela de bloqueio (Pressione Ctrl + Alt + Del)
+# (Pressione Ctrl + Alt + Del)
 
-bindsym control+mod1+Delete exec i3lock --nofork --color=335066
+# bindsym control+mod1+Delete exec i3lock --nofork --color=335066
 
 # A letra 'd' em 'delete' tem que ser maiúscula. 
+
+# ----------------------------------------------------------------------------------------
+
+# Tela de bloqueio (Pressione Ctrl + tecla Windows + l)
+
+bindsym control+$mod+l exec i3lock --nofork --color=335066
+
+
+# O $mod+l  já é usando para "focus up"
+
 
 # Fundo preto: i3lock -n -c 000000
 
@@ -133,11 +159,11 @@ bindsym Ctrl+$mod+t exec thunderbird
 
 # ----------------------------------------------------------------------------------------
 
-# Abrir o Thunar (Pressione tecla Windows + Alt + t)
+# Abrir o Thunar (Pressione Ctrl + tecla Windows + e)
 
 # Sem o "dbus-launch" os dispositivos de armazenamento não aparecem no gerenciador de arquivo.
 
-bindsym $mod+mod1+t exec dbus-launch thunar
+bindsym Ctrl+$mod+e exec dbus-launch thunar
 
 # ----------------------------------------------------------------------------------------
 
@@ -498,5 +524,14 @@ exec --no-startup-id nm-applet &
 # exec --no-startup-id blueman-applet &
 
 # ----------------------------------------------------------------------------------------
+
+
+# for_window [class="Yad" title="yad-calendar"] floating enable
+
+# https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/popup-calendar
+
+# ----------------------------------------------------------------------------------------
+
+
 
 
