@@ -11,6 +11,9 @@
 
 
 
+# Recarregue a configuração do i3: Depois de salvar as mudanças no arquivo de configuração, 
+# você precisa recarregar o i3 para aplicar as alterações. Você pode fazer isso pressionando 
+# Mod+Shift+R (onde Mod geralmente é a tecla Alt ou Super).
 
 
 # ----------------------------------------------------------------------------------------
@@ -400,6 +403,25 @@ gaps inner 10
 # Espaçamento entre as bordas da tela e as janelas
 gaps outer 10
 
+
+# Mudar a cor da borda das janelas
+
+# Cor da borda da janela ativa
+client.focused_border_color #ff0000  # Vermelho
+
+# Cor da borda da janela inativa
+client.unfocused_border_color #333333  # Cinza escuro
+
+
+# Exemplos de cores:
+
+#     Para uma borda azul clara: #0099FF
+#     Para uma borda verde: #00FF00
+#     Para uma borda preta: #000000
+
+# Se preferir, você pode usar nomes de cores em vez de valores hexadecimais, como red, blue, etc.
+
+# Isso deve alterar a cor da borda das janelas no seu i3wm conforme desejado.
 
 # ----------------------------------------------------------------------------------------
 
