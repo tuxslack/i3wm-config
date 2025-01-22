@@ -11,6 +11,7 @@ Atalhos de teclado são teclas ou combinações de teclas que fornecem uma manei
 
 Aqui estão vários atalhos de teclado comuns:
 
+* Enviar um programa para outra area de trabalho (workspace) do i3wm: shift + Tecla Windows + tecla númerica que corresponde a area desejada (1,2,3,4,5,6,7,8,9,10)
 * Alternar entre os programas abertos (O programa deve esta em outra area de trabalho do i3wm): Alt + Tab
 * Alternar entre os programas abertos Tecla Windows + -> ou Tecla Windows + <-
 * Bloquear o computador, sendo necessário digitar a senha, caso tenha, para abrir novamente (O mod+l já é usado - Ctrl + tecla Windows + l): tecla do logotipo do Windows  + L  
