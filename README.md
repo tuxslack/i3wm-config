@@ -26,7 +26,7 @@ Aqui estão vários atalhos de teclado comuns:
   
 
   
-* Dá acesso ao Executar: Windows + R (NÃO CONFIGURADO)
+* Dá acesso ao Executar: Windows + R (ctrl + tecla Windows + R) - Abre o dmenu
   
 * Abre um script, onde é possível desligar, reiniciar o computador ou para fazer logoff: ctrl + alt + delete (NÃO CONFIGURADO)
 
