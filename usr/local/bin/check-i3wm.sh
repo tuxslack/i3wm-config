@@ -9,6 +9,7 @@
 # Objetivo: 
 #
 
+# Ferramentas usadas para construir desktop usando o i3wm
 
 
 # Script de verificação para uso inicial do i3wm para os usuários novatos.
@@ -73,9 +74,14 @@ I3_CONFIG="$HOME/.config/i3/config"
 
 echo -e "\nVerificar se os programas estão instalados: \n"
 
-programas=("i3" "i3-gaps" "i3status" "i3-config-wizard" "xfce4-taskmanager" "xfce4-terminal" "xfce4-screenshooter" "scrot" "import" "notify-send" "i3lock" "conky" "polybar" "picom" "parcellite" "numlockx" "feh" "nitrogen"  "gimp" "simplescreenrecorder" "ffmpeg" "play" "xrandr" "dmenu" "rofi" "htop" "thunar"  "nm-applet" "pavucontrol" "alsamixer" "firefox" "soffice" "ip" "nano" "pluma" "catfish" "lxappearance" "thunderbird" "git" "wget"  "xkill" "convert" "sensors" "clamdscan" "crontab" "find" "sed" "xdg-open" "cut" "guvcview" "inxi" "qmmp-1" "mplayer" "parole" "xdotool"  "wmctrl" "neofetch" "jgmenu" "trans" "kill")
+programas=("i3" "i3-gaps" "i3status" "i3-config-wizard" "i3blocks" "gnome-disk-utility" "xfce4-taskmanager" "xfce4-terminal" "xfce4-screenshooter" "scrot" "import" "notify-send" "i3lock" "conky" "polybar" "picom" "parcellite" "numlockx" "feh" "nitrogen"  "gimp" "simplescreenrecorder" "jq" "ffmpeg" "play" "xrandr" "dmenu" "rofi" "htop" "thunar"  "nm-applet" "pavucontrol" "alsamixer" "firefox" "soffice" "ip" "nano" "pluma" "catfish" "lxappearance" "thunderbird" "git" "wget"  "xkill" "convert" "sensors" "clamdscan" "crontab" "find" "sed" "xdg-open" "cut" "guvcview" "inxi" "qmmp-1" "mplayer" "parole" "xdotool"  "wmctrl" "neofetch" "jgmenu" "trans" "kill" "gthumb")
 
 
+
+
+
+# ulauncher (ruim)
+# dunst
 # volumeicon
 # policykit-1-gnome
 # tint2
@@ -413,6 +419,26 @@ grep -E "exec" "$I3_CONFIG" | while read -r line; do
 done
 
 # ----------------------------------------------------------------------------------------
+
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+
+# Verifica se Polybar esta desativada.
+
+# cp /etc/i3status.conf  ~/.i3status.conf
+      
+
+# bar {
+#          status_command i3status
+
+         # Por padrão, a barra de status do i3 fica na parte inferior. Para colocá-lo na parte superior da tela.
+
+#          position top
+# }
+
+# ----------------------------------------------------------------------------------------
+
 
 
 echo -e "${VERD}\nVerificação concluída! \n${NORM}"
