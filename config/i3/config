@@ -31,12 +31,16 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+
+font pango:monospace 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
 
+# font pango:DejaVu Sans Mono 8
+
+
+# O tamanho da barra de título do i3wm só aumenta se aumentar o tamanho da fonte.
 
 # ----------------------------------------------------------------------------------------
 
@@ -68,7 +72,34 @@ title_align center
 # Aumentar a espessura da borda das janelas com valor em pixels
 # Este comando aplica bordas com espessura personalizada
 
-for_window [class=".*"] border pixel 2  # Altere o valor 1 para a espessura desejada
+# Altere o valor 1 para a espessura desejada
+
+# for_window [class=".*"] border pixel 1
+
+
+# https://i3wm.org/docs/userguide.html#_changing_border_style
+
+# ----------------------------------------------------------------------------------------
+
+# no modo mod+e do i3wm o firefox fica sem a barra de titulo
+
+
+# Configurar o i3wm para forçar a barra de título: Outra possibilidade é ajustar a configuração do i3wm para garantir que as janelas do Firefox mostrem a barra de título. 
+
+# Isso pode forçar a exibição da barra de título e garantir que o Firefox tenha uma borda de janela visível.
+
+# for_window [class="Firefox"] border pixel 1
+
+
+# Isso garantirá que o Firefox tenha bordas e uma barra de título visíveis
+
+for_window [class="Firefox"] border normal 1
+
+
+# export MOZ_GTK_TITLEBAR_DECORATION=client
+
+# echo $MOZ_GTK_TITLEBAR_DECORATION
+# client
 
 
 # ----------------------------------------------------------------------------------------
@@ -110,21 +141,30 @@ workspace_layout tabbed
 # Teclas de atalhos
 
 
+
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# set $refresh_i3status killall -SIGUSR1 i3status
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
+
 floating_modifier $mod
+
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
+
 tiling_drag modifier titlebar
 
+
 # start a terminal
+
 bindsym $mod+Return exec i3-sensible-terminal
 
 # ----------------------------------------------------------------------------------------
@@ -191,6 +231,15 @@ bindsym $mod+x exec ~/.config/rofi/bin/powermenu.sh
 
 bindsym Print exec xfce4-screenshooter
 
+
+# Como tirar uma screenshot no i3wm
+
+
+# https://plus.diolinux.com.br/t/como-tirar-uma-screenshot-no-i3wm/46374
+
+# https://dev.to/dianjuar/i3wm-screenshot-shortcuts-3n7b
+
+
 # ----------------------------------------------------------------------------------------
 
 # (Pressione Ctrl + Alt + Del)
@@ -240,10 +289,10 @@ bindsym Ctrl+$mod+t exec thunderbird
 
 # Sem o "dbus-launch" os dispositivos de armazenamento não aparecem no gerenciador de arquivo.
 
-# bindsym Ctrl+$mod+e exec dbus-launch thunar
+bindsym Ctrl+$mod+e exec dbus-launch thunar
 
 
-bindsym Ctrl+$mod+e exec thunar
+# bindsym Ctrl+$mod+e exec thunar
 
 
 # ----------------------------------------------------------------------------------------
@@ -343,11 +392,13 @@ bindsym $mod+v split v
 # Tela cheia
 
 # enter fullscreen mode for the focused container
+
 bindsym $mod+f fullscreen toggle
 
 # ----------------------------------------------------------------------------------------
 
 # change container layout (stacked, tabbed, toggle split)
+
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
@@ -368,12 +419,17 @@ bindsym $mod+Shift+space floating toggle
 
 
 # change focus between tiling / floating windows
+
 bindsym $mod+space focus mode_toggle
 
+
 # focus the parent container
+
 bindsym $mod+a focus parent
 
+
 # focus the child container
+
 #bindsym $mod+d focus child
 
 
@@ -485,7 +541,9 @@ bindsym $mod+r mode "resize"
 
 for_window [class="Galculator"] floating enable
 
+
 # Fazer todos os galculator usarem uma borda de 1 pixel:
+
 # for_window [class="Galculator"] border pixel 1
 
 
@@ -503,41 +561,37 @@ for_window [class="(?i)pavucontrol"] floating enable, move position mouse
 
 for_window [class="(?i)simplescreenrecorder"] floating enable
 
+
 for_window [class="(?i)nm-applet"] floating enable
 
+
+for_window [class="(?i)parcellite"] floating enable
 
 
 for_window [class="(?i)file-roller"] floating enable
 
+
 for_window [class="(?i)nitrogen"] floating enable
+
 
 for_window [class="(?i)system-config-printer"] floating enable, resize set 840 640
 
 
+for_window [class="(?i)Gpick"] floating enable
+
+
 # for_window [class="Conky"] floating enable
+
+
 
 
 # https://i3wm.org/docs/userguide.html#for_window
 
 # ----------------------------------------------------------------------------------------
 
-
-
-
 # O i3wm, 4.24, não usa mais o parâmetro border diretamente para configurar a espessura 
 # das bordas das janelas. No lugar disso, essa funcionalidade foi substituída por um 
 # sistema que depende da configuração de gaps e o estilo das bordas, utilizando i3-gaps
-
-# Exemplo de configuração para bordas no i3-gaps
-
-# Aumenta a espessura da borda das janelas focadas para 1px
-
-#client.focused_border pixel 1
-
-
-# Borda mais fina para janelas não focadas
-
-#client.unfocused_border pixel 1
 
 
 
@@ -569,6 +623,9 @@ gaps outer 10
 
 # class                 border  backgr. text    indicator child_border
 
+# client.focused          #4c7899 #285577 #ffffff #2e9ef4
+# client.unfocused        #333333 #5f676a #888888 #292d2e
+
 client.focused          #ff0000 #285577 #ffffff #ff0000   #ff0000
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
@@ -594,11 +651,28 @@ client.background       #ff0000
 # Autostart (Programas iniciados com o i3wm)
 
 
+
+# Log de errors:
+# 
+# daemon.err: Jan 31 11:51:35 rtkit-daemon[937]: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+# daemon.err: Jan 31 11:51:36 rtkit-daemon[950]: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+# authpriv.err: Jan 31 11:51:59 sddm-helper: gkr-pam: unable to locate daemon control file
+# user.err: Jan 31 11:52:06 pulseaudio[1371]: [pulseaudio] pid.c: Daemon already running.
+# user.err: Jan 31 11:52:56 pulseaudio[1301]: [pulseaudio] core-util.c: Failed to create secure directory (/run/user/1000/pulse): Arquivo ou diretório inexistente
+# authpriv.err: Jan 31 11:53:06 sddm-helper: gkr-pam: unable to locate daemon control file
+# user.err: Jan 31 11:53:07 pulseaudio[2069]: [pulseaudio] pid.c: Daemon already running.
+# daemon.err: Jan 31 12:28:22 rtkit-daemon[941]: Failed to connect to system bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+# authpriv.err: Jan 31 12:28:45 sddm-helper: gkr-pam: unable to locate daemon control file
+# user.err: Jan 31 12:28:52 pulseaudio[1359]: [pulseaudio] pid.c: Daemon already running.
+
+
 # ----------------------------------------------------------------------------------------
 
 # Para garantir que o DBus inicie ao inicializar o i3wm
 
-exec --no-startup-id dbus-launch
+# Se não ativa o Thunderbird, Firefox, Thunar e o xfce4-terminal ficam sem o titulo na janela do i3wm.
+
+exec --no-startup-id dbus-launch &
 
 # ----------------------------------------------------------------------------------------
 
@@ -612,8 +686,17 @@ exec --no-startup-id dbus-launch
 #
 # xbps-install -S gnome-keyring
 
-exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
+# exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh &
 
+# ----------------------------------------------------------------------------------------
+
+# Erro no gkr-pam:
+# 
+# sddm-helper: gkr-pam: unable to locate daemon control file
+# 
+# Isso está relacionado com a integração do GNOME Keyring (gkr-pam) com o PAM 
+# (Pluggable Authentication Module). O erro sugere que o sistema não consegue localizar o 
+# arquivo de controle do daemon. Tente reinstalar o GNOME Keyring para resolver isso.
 
 # ----------------------------------------------------------------------------------------
 
@@ -690,14 +773,38 @@ exec_always --no-startup-id xrandr -s 1920x1080 &
 
 # Para garantir que o Pulseaudio seja iniciado automaticamente
 
-# exec --no-startup-id pulseaudio --start &
+
+# Erro no Pulseaudio (Daemon já em execução)
+#
+# Isso significa que o PulseAudio já está em execução, e o sistema tentou iniciar outro 
+# processo do daemon. Isso pode acontecer se o PulseAudio não for desligado corretamente 
+# após uma reinicialização. Para garantir que não haja instâncias conflitantes, você pode 
+# tentar matar o processo do PulseAudio manualmente e reiniciar
+
+exec --no-startup-id pkill pulseaudio ; pulseaudio --start &
+
 
 
 # Erro do Pulseaudio: Daemon already running
 #
 # O erro significa que o Pulseaudio já está em execução, então não pode ser iniciado novamente.
 
-exec --no-startup-id pulseaudio -k &
+# exec --no-startup-id pulseaudio -k &
+
+
+
+# Erro no diretório PulseAudio:
+# 
+# Failed to create secure directory (/run/user/1000/pulse): Arquivo ou diretório inexistente
+# 
+# Isso indica que o PulseAudio não consegue criar um diretório necessário para operar. 
+# Certifique-se de que o diretório /run/user/1000/ exista e tenha as permissões corretas. 
+# Você pode tentar criá-lo manualmente:
+# 
+# ls -lh /run/user/1000/pulse
+#
+# mkdir -p /run/user/1000/pulse
+
 
 # ----------------------------------------------------------------------------------------
 
@@ -749,7 +856,7 @@ exec --no-startup-id parcellite &
 
 # Compositor (picom) - É um fork do compton, criado porque o compton não estava sendo mantido ativamente.
 
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf &
+# exec_always --no-startup-id picom --config ~/.config/picom/picom.conf &
 
 # ----------------------------------------------------------------------------------------
 
@@ -760,7 +867,7 @@ exec_always --no-startup-id picom --config ~/.config/picom/picom.conf &
 
 # exec --no-startup-id ~/.config/polybar/launch.sh &
 
-# exec_always --no-startup-id killall -9 polybar ; polybar -c ~/.config/polybar/config.ini &
+exec_always --no-startup-id killall -9 polybar ; polybar -c ~/.config/polybar/config.ini &
 
 # https://wiki.archlinux.org/title/Polybar_(Portugu%C3%AAs)
 
@@ -796,13 +903,6 @@ exec --no-startup-id nm-applet &
 # Bluetooth
 
 # exec --no-startup-id blueman-applet &
-
-# ----------------------------------------------------------------------------------------
-
-
-# for_window [class="Yad" title="yad-calendar"] floating enable
-
-# https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/popup-calendar
 
 # ----------------------------------------------------------------------------------------
 
@@ -856,6 +956,12 @@ exec --no-startup-id nm-applet &
 
 # ----------------------------------------------------------------------------------------
 
+
+# for_window [class="Yad" title="yad-calendar"] floating enable
+
+# https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/popup-calendar
+
+# ----------------------------------------------------------------------------------------
 
 
 
